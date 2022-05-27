@@ -50,7 +50,7 @@ def info_about_user(user, vk_token):
 def get_user_photos(user, vk_token):
     try:
         user_info = requests.get(request_pattern.format("users.get",
-                                                        f"user_ids={user}&fields=city", vk_token)).json()['response'][0]
+                                                        f"user_ids={user}", vk_token)).json()['response'][0]
         path = user_info['first_name'] + ' ' + user_info['last_name']
         if not os.path.exists(path):
             p = pathlib.Path(path)
